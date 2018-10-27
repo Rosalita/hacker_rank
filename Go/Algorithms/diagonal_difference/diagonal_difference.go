@@ -10,27 +10,64 @@ import (
 	"strings"
 )
 
+type coord struct {
+	x int
+	y int
+}
+
+func findPrimaryCoords(arr [][]int32) []coord {
+	size := len(arr)
+	coords := []coord{}
+	for i := 0; i < int(size); i++ {
+		coord := coord{
+			x: i,
+			y: i,
+		}
+		coords = append(coords, coord)
+	}
+	return coords
+}
+
+func findSecondaryCoords(arr [][]int32) []coord {
+	size := len(arr)
+	coords := []coord{}
+
+	for i := 0; i < int(size); i++ {
+		coord := coord{
+			x: i,
+			y: int(size) - 1 - i,
+		}
+		coords = append(coords, coord)
+	}
+	return coords
+}
+
+func getSumOfCoords(arr [][]int32, coords []coord) int32 {
+	var sum int32
+	for _, coord := range coords {
+		sum += arr[coord.x][coord.y]
+	}
+	return sum
+
+}
+
 // Complete the diagonalDifference function below.
 func diagonalDifference(arr [][]int32) int32 {
 
-	//arrSize := arr[0][0]
+	primaryDiagCoords := findPrimaryCoords(arr)
+	secondaryDiagCoords := findSecondaryCoords(arr)
 
-	//matrix := make([][]int32, arrSize)
+	primarySum := getSumOfCoords(arr, primaryDiagCoords)
+	secondarySum := getSumOfCoords(arr, secondaryDiagCoords)
 
-	return int32(1)
+	difference := primarySum - secondarySum
+	difference = absInt(difference)
+	return difference
 }
 
 func absInt(i int32) int32 {
 	absFloat := math.Abs(float64(i))
 	return int32(absFloat)
-}
-
-func addPoints(points []int32) int32 {
-	var sum int32
-	for _, v := range points {
-		sum += v
-	}
-	return sum
 }
 
 func main() {
