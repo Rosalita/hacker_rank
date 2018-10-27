@@ -54,8 +54,6 @@ func getSumOfCoords(arr [][]int32, coords []coord) int32 {
 // Complete the diagonalDifference function below.
 func diagonalDifference(arr [][]int32) int32 {
 
-	fmt.Println(arr)
-
 	primaryDiagCoords := findPrimaryCoords(arr)
 	secondaryDiagCoords := findSecondaryCoords(arr)
 

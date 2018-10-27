@@ -9,7 +9,6 @@ import (
 func TestDiagonalDifferences(t *testing.T) {
 
 	input1 := [][]int32{
-		[]int32{3},
 		[]int32{11, 2, 4},
 		[]int32{4, 5, 6},
 		[]int32{10, 8, -12},
