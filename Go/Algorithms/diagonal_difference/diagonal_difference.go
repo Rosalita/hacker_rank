@@ -13,19 +13,11 @@ import (
 // Complete the diagonalDifference function below.
 func diagonalDifference(arr [][]int32) int32 {
 
-	primaryPoints := []int32{arr[0][0], arr[1][1], arr[2][2]}
-	secondaryPoints := []int32{arr[0][2], arr[1][1], arr[2][0]}
+	//arrSize := arr[0][0]
 
-	p := addPoints(primaryPoints)
-	p = absInt(p)
+	//matrix := make([][]int32, arrSize)
 
-	s := addPoints(secondaryPoints)
-	s = absInt(s)
-
-	diff := p - s
-
-	return absInt(diff)
-
+	return int32(1)
 }
 
 func absInt(i int32) int32 {
