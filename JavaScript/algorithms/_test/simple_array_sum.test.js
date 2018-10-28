@@ -10,4 +10,7 @@ test('simpleArraySum can add an array of two positive numbers', () => {
     expect(simpleArraySum(nums)).toEqual("0fishchips")
   })
 
-  
+  test('simpleArraySum can add lots of numbers', () => {
+    const nums = [1, 2, 5, -4, 0, 1]
+    expect(simpleArraySum(nums)).toEqual(5)
+  })
